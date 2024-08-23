@@ -5,7 +5,7 @@
 
 tmp1=$(mktemp /tmp/tmp.XXXX)
 
-./decryptFiles.sh $1 $tmp1
+gpg -d $1 > $tmp1
 
 while IFS= read -r line || [[ -n "$line" ]]; do
     echo "Checking $line ...";
