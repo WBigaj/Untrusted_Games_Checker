@@ -5,7 +5,12 @@
 
 tmp1=$(mktemp /tmp/tmp.XXXX)
 
-./FileToUpper.sh $1 $tmp1
-./SortAndRemoveDup.sh $tmp1 $2
+#Format all letters to upper
+while IFS= read -r line || [[ -n "$line" ]]; do
+    echo ${line^^} >> $tmp1
+done < $1
+
+#Sort the list and remove non-unique entries
+cat  $tmp1 | sort | uniq > $2
 
 rm $tmp1
