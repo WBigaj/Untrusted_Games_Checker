@@ -13,7 +13,7 @@ fi
 
 lynx -dump $PlayerPage > $tmp1
 
-CHANGE=$(diff $tmp1 $ProfileFileLocation)
+CHANGE=$(cmp $tmp1 $ProfileFileLocation)
 if [ -n "$CHANGE" ]; then
     cat < $tmp1 > $ProfileFileLocation;
     echo $1;
