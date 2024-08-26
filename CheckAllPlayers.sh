@@ -3,6 +3,7 @@
 #S1 is file with the PlayerList
 
 outputFile="$(date +"%Y-%m-%d-%H-%M-%S")-Results.txt"
+noGamesMessage='No (possible) new games'
 
 while IFS= read -r line || [[ -n "$line" ]]; do
     echo "Checking $line ...";
@@ -10,3 +11,7 @@ while IFS= read -r line || [[ -n "$line" ]]; do
         echo $line >> $outputFile
     fi
 done < $1
+
+if ! [ -f $outputFile ]; then
+    echo $noGamesMessage > $outputFile
+fi
