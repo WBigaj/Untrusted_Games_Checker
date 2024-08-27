@@ -6,9 +6,10 @@ tmp1=$(mktemp /tmp/tmp.XXX)
 
 ProfileFileLocation="../PlayerFiles/$1"
 PlayerPage="https://eu01.playuntrusted.com/profile/$1/"
+NewPlayerFileContent="New Player's placeholder snapshot"
 
 if ! [ -f $ProfileFileLocation ]; then
-    touch $ProfileFileLocation
+    echo $NewPlayerFileContent > $ProfileFileLocation
 fi
 
 lynx -dump $PlayerPage > $tmp1
