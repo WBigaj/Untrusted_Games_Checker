@@ -6,7 +6,7 @@ tmp1=$(mktemp /tmp/tmp.XXX)
 
 ProfileFileLocation="../PlayerFiles/$1"
 PlayerPage="https://eu01.playuntrusted.com/profile/$1/"
-NewPlayerFileContent="New Player's placeholder snapshot"
+NewPlayerFileContent=""
 
 if ! [ -f $ProfileFileLocation ]; then
     echo $NewPlayerFileContent > $ProfileFileLocation
